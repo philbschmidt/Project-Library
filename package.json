@@ -2,7 +2,7 @@
     "name": "project-library",
     "displayName": "Project Library",
     "description": "A project manager that lets you save and organize your projects in a tree structure.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "philbschmidt",
     "license": "MIT",
     "icon": "media/images/icon.png",
@@ -12,13 +12,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/philbschmidt/Project-Master"
+        "url": "https://github.com/philbschmidt/Project-Library"
     },
     "bugs": {
-        "url": "https://github.com/philbschmidt/Project-Master/issues",
+        "url": "https://github.com/philbschmidt/Project-Library/issues",
         "email": "phillip.jucky@gmail.com"
     },
-    "homepage": "https://github.com/philbschmidt/Project-Master/blob/master/README.md/#readme",
+    "homepage": "https://github.com/philbschmidt/Project-Library/blob/main/README.md/#readme",
     "galleryBanner": {
         "color": "#3b3e50",
         "theme": "dark"

@@ -2,7 +2,7 @@
 
 # *Project Library*
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/philbschmidt.vscode-project-library?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.vscode-project-library) [![Installs](https://img.shields.io/visual-studio-marketplace/i/philbschmidt.vscode-project-library?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.vscode-project-library) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/philbschmidt.vscode-project-library?style=for-the-badge&label=Downloads&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.vscode-project-library)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/philbschmidt.project-library?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-library) [![Installs](https://img.shields.io/visual-studio-marketplace/i/philbschmidt.project-library?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-library) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/philbschmidt.project-library?style=for-the-badge&label=Downloads&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-library)
 
 **Project Library** is a VS Code extension that helps you save, organize, and quickly switch between your projects using a tree structure with categories.
 
@@ -51,9 +51,9 @@ Right-click on any project or category to:
 ## Data Storage
 
 Project Library stores your projects and categories in VS Code's global storage directory:
-- **Windows**: `%APPDATA%\Code\User\globalStorage\philbschmidt.vscode-project-library\`
-- **macOS**: `~/Library/Application Support/Code/User/globalStorage/philbschmidt.vscode-project-library/`
-- **Linux**: `~/.config/Code/User/globalStorage/philbschmidt.vscode-project-library/`
+- **Windows**: `%APPDATA%\Code\User\globalStorage\philbschmidt.project-library\`
+- **macOS**: `~/Library/Application Support/Code/User/globalStorage/philbschmidt.project-library/`
+- **Linux**: `~/.config/Code/User/globalStorage/philbschmidt.project-library/`
 
 Data is stored in two JSON files:
 - `projects.json` - Your saved projects

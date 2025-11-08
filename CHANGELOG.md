@@ -2,6 +2,13 @@
 
 All notable changes to the "Project Library" extension will be documented in this file.
 
+## [1.0.1]
+
+- Changed [README.md](README.md)
+    - Fixed URLs
+- Changed package.json
+    - Fixed URLs
+
 ## [1.0.0]
 
 Initial release of Project Library:
