@@ -2,6 +2,10 @@
 
 All notable changes to the "Project Library" extension will be documented in this file.
 
+## [1.0.2]
+
+- Changed project library icon
+
 ## [1.0.1]
 
 - Changed [README.md](README.md)
