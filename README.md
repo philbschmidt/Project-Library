@@ -1,8 +1,10 @@
-# Project Master
+![Project Master Logo](https://github.com/philbschmidt/Project-Master/raw/HEAD/media/images/icon.png)
+
+# *Project Master*
+
+[![Version](https://img.shields.io/visual-studio-marketplace/v/philbschmidt.project-master?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master) [![Installs](https://img.shields.io/visual-studio-marketplace/i/philbschmidt.project-master?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/philbschmidt.project-master?style=for-the-badge&label=Downloads&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master)
 
 **Project Master** is a VS Code extension that helps you save, organize, and quickly switch between your projects using a tree structure with categories.
-
-[![Version](https://img.shields.io/visual-studio-marketplace/v/philbschmidt.project-master?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master)[![Installs](https://img.shields.io/visual-studio-marketplace/i/philbschmidt.project-master?style=for-the-badge&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master)[![Downloads](https://img.shields.io/visual-studio-marketplace/d/philbschmidt.project-master?style=for-the-badge&label=Downloads&cacheSeconds=21600)](https://marketplace.visualstudio.com/items?itemName=philbschmidt.project-master)
 
 ## Features
 
@@ -20,18 +22,18 @@
 
 1. Open the folder or workspace you want to save
 2. Click the Project Master icon in the sidebar
-![sidebar icon](media/images/sidebar-icon-readme.png)
+![sidebar icon](https://github.com/philbschmidt/Project-Master/raw/HEAD/media/images/sidebar-icon-readme.png)
 3. Click the **"Add Project"** button in the tree view toolbar
 4. Enter a name for your project
 5. Optionally select a category (or leave at Root)
-![add project readme](media/videos/add-project-readme.gif)
+![add project readme](https://github.com/philbschmidt/Project-Master/raw/HEAD/media/videos/add-project-readme.gif)
 
 ### Creating Categories
 
 1. Click the **"Add Category"** button in the tree view toolbar
 2. Enter a category name
 3. Categories can be nested by right-clicking on an existing category and selecting "Add Category"
-![add category readme](media/videos/add-category-readme.gif)
+![add category readme](https://github.com/philbschmidt/Project-Master/raw/HEAD/media/videos/add-category-readme.gif)
 
 ### Opening Projects
 
@@ -44,7 +46,7 @@ Right-click on any project or category to:
 - **Edit** - Rename or move to different category
 - **Delete** - Remove entry (deleting a category moves projects to Root)
 - **Add Project/Category** - Add new entries within the selected category
-![managing entries](media/videos/managing-entries-readme.gif)
+![managing entries](https://github.com/philbschmidt/Project-Master/raw/HEAD/media/videos/managing-entries-readme.gif)
 
 ## Data Storage
 
