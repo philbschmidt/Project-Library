@@ -2,6 +2,13 @@
 
 All notable changes to the "Project Library" extension will be documented in this file.
 
+## [1.1.0]
+
+- Added Expand All button to toolbar
+- Added Project Search functionality with keyboard shortcut (Ctrl+F / Cmd+F)
+- Updated [README.md](README.md)
+    - Fixed description for "Open in New Window" feature
+
 ## [1.0.5]
 
 - Updated image

@@ -33,7 +33,7 @@ class TreeItem extends vscode.TreeItem {
             this.tooltip = `${label}\n${pathInfo}${isCurrentProject ? '\n\n🟢 Currently Active' : ''}`;
         }
         else {
-            this.iconPath = new vscode.ThemeIcon('collection');
+            this.iconPath = new vscode.ThemeIcon('folder');
             this.contextValue = 'category';
             this.tooltip = label;
         }
@@ -42,11 +42,9 @@ class TreeItem extends vscode.TreeItem {
         if (!this.project) {
             return false;
         }
-        // Check if workspace file matches
         if (this.project._workspacePath && vscode.workspace.workspaceFile) {
             return this.project._workspacePath === vscode.workspace.workspaceFile.fsPath;
         }
-        // Check if folder path matches
         if (this.project._path && vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0) {
             return this.project._path === vscode.workspace.workspaceFolders[0].uri.fsPath;
         }

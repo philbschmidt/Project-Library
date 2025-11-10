@@ -36,7 +36,7 @@
 ### Opening Projects
 
 - **Single Click**: Opens project in current window (closes current workspace)
-- **Right-Click → "Open in New Window"**: Opens project in a new VS Code window
+- **Inline Button**: Click the "Open in New Window" icon next to a project to open it in a new VS Code window
 
 ### Managing Entries
 

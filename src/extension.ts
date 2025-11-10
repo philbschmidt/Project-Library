@@ -5,12 +5,15 @@ import { Category } from './category';
 
 export let extensionContext: vscode.ExtensionContext;
 let treeDataProvider: TreeDataProvider;
+let treeView: vscode.TreeView<any>;
 
 export function activate(context: vscode.ExtensionContext) {
     extensionContext = context;
     treeDataProvider = new TreeDataProvider();
 
-    vscode.window.registerTreeDataProvider('projectLibraryTreeView', treeDataProvider);
+    treeView = vscode.window.createTreeView('projectLibraryTreeView', {
+        treeDataProvider: treeDataProvider
+    });
 
     context.subscriptions.push(
         vscode.commands.registerCommand('project-library.addProject', (item?: any) => {
@@ -51,6 +54,38 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         vscode.commands.registerCommand('project-library.collapseAll', () => {
             vscode.commands.executeCommand('workbench.actions.treeView.projectLibraryTreeView.collapseAll');
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('project-library.expandAll', async () => {
+            await treeDataProvider.expandAllNodes(treeView);
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('project-library.searchProjects', async () => {
+            const allProjects = Project.getAll();
+
+            if (allProjects.length === 0) {
+                vscode.window.showInformationMessage('No projects found.');
+                return;
+            }
+
+            const items = allProjects.map(project => ({
+                label: project._name,
+                description: project._workspacePath || project._path,
+                project: project
+            }));
+
+            const selected = await vscode.window.showQuickPick(items, {
+                placeHolder: 'Search and select a project to open',
+                matchOnDescription: true
+            });
+
+            if (selected) {
+                vscode.commands.executeCommand('project-library.openInCurrentWindow', selected.project._id);
+            }
         })
     );
 

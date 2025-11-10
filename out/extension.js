@@ -8,10 +8,13 @@ const treeDataProvider_1 = require("./treeDataProvider");
 const project_1 = require("./project");
 const category_1 = require("./category");
 let treeDataProvider;
+let treeView;
 function activate(context) {
     exports.extensionContext = context;
     treeDataProvider = new treeDataProvider_1.TreeDataProvider();
-    vscode.window.registerTreeDataProvider('projectLibraryTreeView', treeDataProvider);
+    treeView = vscode.window.createTreeView('projectLibraryTreeView', {
+        treeDataProvider: treeDataProvider
+    });
     context.subscriptions.push(vscode.commands.registerCommand('project-library.addProject', (item) => {
         let parentCategoryId = undefined;
         if (item && typeof item === 'object') {
@@ -41,6 +44,28 @@ function activate(context) {
     }));
     context.subscriptions.push(vscode.commands.registerCommand('project-library.collapseAll', () => {
         vscode.commands.executeCommand('workbench.actions.treeView.projectLibraryTreeView.collapseAll');
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('project-library.expandAll', async () => {
+        await treeDataProvider.expandAllNodes(treeView);
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('project-library.searchProjects', async () => {
+        const allProjects = project_1.Project.getAll();
+        if (allProjects.length === 0) {
+            vscode.window.showInformationMessage('No projects found.');
+            return;
+        }
+        const items = allProjects.map(project => ({
+            label: project._name,
+            description: project._workspacePath || project._path,
+            project: project
+        }));
+        const selected = await vscode.window.showQuickPick(items, {
+            placeHolder: 'Search and select a project to open',
+            matchOnDescription: true
+        });
+        if (selected) {
+            vscode.commands.executeCommand('project-library.openInCurrentWindow', selected.project._id);
+        }
     }));
     context.subscriptions.push(vscode.commands.registerCommand('project-library.editEntry', (item) => {
         if (item.category !== undefined) {

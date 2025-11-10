@@ -2,7 +2,7 @@
     "name": "project-library",
     "displayName": "Project Library",
     "description": "A project manager that lets you save and organize your projects in a tree structure.",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "publisher": "philbschmidt",
     "license": "MIT",
     "icon": "media/images/icon.png",
@@ -91,10 +91,22 @@
                 "icon": "$(folder-opened)"
             },
             {
+                "command": "project-library.expandAll",
+                "title": "Expand All",
+                "category": "Project Library",
+                "icon": "$(expand-all)"
+            },
+            {
                 "command": "project-library.collapseAll",
                 "title": "Collapse All",
                 "category": "Project Library",
                 "icon": "$(collapse-all)"
+            },
+            {
+                "command": "project-library.searchProjects",
+                "title": "Search Projects",
+                "category": "Project Library",
+                "icon": "$(search)"
             }
         ],
         "menus": {
@@ -122,19 +134,29 @@
             ],
             "view/title": [
                 {
-                    "command": "project-library.addCategoryRoot",
+                    "command": "project-library.searchProjects",
                     "when": "view == projectLibraryTreeView",
                     "group": "navigation@1"
                 },
                 {
-                    "command": "project-library.addProject",
+                    "command": "project-library.addCategoryRoot",
                     "when": "view == projectLibraryTreeView",
                     "group": "navigation@2"
                 },
                 {
-                    "command": "project-library.collapseAll",
+                    "command": "project-library.addProject",
                     "when": "view == projectLibraryTreeView",
                     "group": "navigation@3"
+                },
+                {
+                    "command": "project-library.expandAll",
+                    "when": "view == projectLibraryTreeView",
+                    "group": "navigation@4"
+                },
+                {
+                    "command": "project-library.collapseAll",
+                    "when": "view == projectLibraryTreeView",
+                    "group": "navigation@5"
                 }
             ],
             "view/item/context": [
@@ -180,6 +202,14 @@
                 }
             ]
         },
+        "keybindings": [
+            {
+                "command": "project-library.searchProjects",
+                "key": "ctrl+f",
+                "mac": "cmd+f",
+                "when": "focusedView == projectLibraryTreeView"
+            }
+        ],
         "views": {
             "philbschmidt-project-library": [
                 {
