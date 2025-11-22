@@ -1,11 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.pathExists = pathExists;
 exports.ensureStorageFile = ensureStorageFile;
 exports.readStorageFile = readStorageFile;
 exports.writeStorageFile = writeStorageFile;
 const fs = require("fs");
 const path = require("path");
 const extension_1 = require("./extension");
+function pathExists(pathToCheck) {
+    try {
+        return fs.existsSync(pathToCheck);
+    }
+    catch (error) {
+        return false;
+    }
+}
 function ensureStorageFile(filename) {
     const storagePath = extension_1.extensionContext.globalStorageUri.fsPath.toString();
     const filePath = path.join(storagePath, filename);

@@ -85,6 +85,12 @@ function activate(context) {
             treeDataProvider.refresh();
         }
     }));
+    context.subscriptions.push(vscode.commands.registerCommand('project-library.deleteInvalidProject', (item) => {
+        if (item && item.project !== undefined) {
+            project_1.Project.deleteById(item.project._id);
+            treeDataProvider.refresh();
+        }
+    }));
     context.subscriptions.push(vscode.commands.registerCommand('project-library.openInNewWindow', (item) => {
         if (item.project === undefined) {
             vscode.window.showErrorMessage('No project selected.');

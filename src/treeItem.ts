@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import { Project } from './project';
 import { Category } from './category';
+import { pathExists } from './utils';
+import { getProjectIcon } from './iconService';
 
 export class TreeItem extends vscode.TreeItem {
     children: TreeItem[] | undefined;
@@ -19,20 +21,22 @@ export class TreeItem extends vscode.TreeItem {
         this.category = category;
 
         if (this.project) {
-            const isCurrentProject = this.isCurrentProject();
+            const isCurrent = this.isCurrentProject();
+            const pathToCheck = this.project._workspacePath ?? this.project._path;
+            const isValid = pathExists(pathToCheck);
 
             if (this.project._workspacePath) {
-                this.iconPath = new vscode.ThemeIcon('folder-library');
                 this.label = `${label} (Workspace)`;
-            } else {
-                this.iconPath = new vscode.ThemeIcon('folder');
             }
 
-            if (isCurrentProject) {
-                this.iconPath = new vscode.ThemeIcon('folder-active', new vscode.ThemeColor('terminal.ansiGreen'));
-            }
+            const icon = getProjectIcon({
+                workspace: !!this.project._workspacePath,
+                active: isCurrent,
+                invalid: !isValid
+            });
+            this.iconPath = icon;
+            this.contextValue = isValid ? 'project' : 'project-invalid';
 
-            this.contextValue = 'project';
             this.command = {
                 command: 'project-library.openInCurrentWindow',
                 title: 'Open Project',
@@ -40,7 +44,17 @@ export class TreeItem extends vscode.TreeItem {
             };
 
             const pathInfo = this.project._workspacePath ?? this.project._path;
-            this.tooltip = `${label}\n${pathInfo}${isCurrentProject ? '\n\n🟢 Currently Active' : ''}`;
+            let tooltipText = `${label}\n${pathInfo}`;
+
+            if (isCurrent) {
+                tooltipText += '\n\n🟢 Currently Active';
+            }
+
+            if (!isValid) {
+                tooltipText += '\n\n🔴 Path not found';
+            }
+
+            this.tooltip = tooltipText;
         } else {
             this.iconPath = new vscode.ThemeIcon('folder');
             this.contextValue = 'category';

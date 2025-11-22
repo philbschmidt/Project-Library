@@ -2,6 +2,14 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { extensionContext } from './extension';
 
+export function pathExists(pathToCheck: string): boolean {
+    try {
+        return fs.existsSync(pathToCheck);
+    } catch (error) {
+        return false;
+    }
+}
+
 export function ensureStorageFile(filename: string): void {
     const storagePath = extensionContext.globalStorageUri.fsPath.toString();
     const filePath = path.join(storagePath, filename);

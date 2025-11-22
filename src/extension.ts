@@ -112,6 +112,15 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
+        vscode.commands.registerCommand('project-library.deleteInvalidProject', (item) => {
+            if (item && item.project !== undefined) {
+                Project.deleteById(item.project._id);
+                treeDataProvider.refresh();
+            }
+        })
+    );
+
+    context.subscriptions.push(
         vscode.commands.registerCommand('project-library.openInNewWindow', (item) => {
             if (item.project === undefined) {
                 vscode.window.showErrorMessage('No project selected.');
