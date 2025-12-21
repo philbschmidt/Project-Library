@@ -2,6 +2,12 @@
 
 All notable changes to the "Project Library" extension will be documented in this file.
 
+## [1.1.4] - 2025-12-21
+
+- Changed sidebar icon
+- Added automated publish script (`npm run deploy`) for easier release management
+- Updated build configuration
+
 ## [1.1.3] - 2025-11-22
 
 - Improved project validation and error handling
