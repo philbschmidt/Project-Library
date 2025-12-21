@@ -2,6 +2,10 @@
 
 All notable changes to the "Project Library" extension will be documented in this file.
 
+## [1.1.5] - 2025-12-21
+
+- Extended publish script to prohibit deployment, when there are not committed git changes
+
 ## [1.1.4] - 2025-12-21
 
 - Changed sidebar icon

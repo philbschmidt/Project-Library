@@ -4,6 +4,12 @@ const { version } = require('../package.json');
 console.log(`Starting publish for version ${version}...`);
 
 try {
+    const status = execSync('git status --porcelain').toString().trim();
+    if (status) {
+        console.error('Error: There are uncommitted git changes. Please commit or stash them before publishing.');
+        process.exit(1);
+    }
+
     execSync('vsce publish', { stdio: 'inherit' });
 
     const tagName = `v${version}`;
